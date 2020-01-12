@@ -1,30 +1,33 @@
 ﻿using System;
 
-public class Arrow
+namespace JoustusEngine
 {
-    ArrowType _arrowType;
-
-	public Arrow(ArrowType arrowType)
-	{
-        _arrowType = arrowType;
-	}
-
-    public ArrowType GetType()
+    public class Arrow
     {
-        return _arrowType;
-    }
+        ArrowType _arrowType;
 
-    public ArrowType SetType(ArrowType arrowType)
-    {
-        _arrowType = arrowType;
-    }
+        public Arrow(ArrowType arrowType)
+        {
+            _arrowType = arrowType;
+        }
 
-    public static enum ArrowType
-    {
-        Single,
-        Double,
-        Triple,
-        Bomb,
-        Conveyor
+        public ArrowType GetType()
+        {
+            return _arrowType;
+        }
+
+        public void SetType(ArrowType arrowType)
+        {
+            _arrowType = arrowType;
+        }
+
+        public static enum ArrowType
+        {
+            Single,
+            Double,
+            Triple,
+            Bomb,
+            Conveyor
+        }
     }
 }
