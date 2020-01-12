@@ -11,23 +11,23 @@ namespace JoustusEngine
             _arrowType = arrowType;
         }
 
-        public ArrowType GetType()
+        public ArrowType GetArrowType()
         {
             return _arrowType;
         }
 
-        public void SetType(ArrowType arrowType)
+        public void SetArrowType(ArrowType arrowType)
         {
             _arrowType = arrowType;
         }
+    }
 
-        public static enum ArrowType
-        {
-            Single,
-            Double,
-            Triple,
-            Bomb,
-            Conveyor
-        }
+    public enum ArrowType
+    {
+        Single,
+        Double,
+        Triple,
+        Bomb,
+        Conveyor
     }
 }
