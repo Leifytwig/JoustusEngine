@@ -60,9 +60,24 @@ namespace JoustusEngine
             _rightSide = arrow;
         }
 
-        public void SetBottommArrow(Arrow arrow)
+        public void SetBottomArrow(Arrow arrow)
         {
             _bottomSide = arrow;
+        }
+
+        public string RenderRow(int row)
+        {
+            switch (row)
+            {
+                case 1:
+                    return $".{(_topSide != null ? _topSide.RenderArrow() : ' ')}.";
+                case 2:
+                    return $"{(_leftSide != null ? _leftSide.RenderArrow() : '.')} {(_rightSide != null ? _rightSide.RenderArrow() : ' ')}";
+                case 3:
+                    return $".{(_bottomSide != null ? _bottomSide.RenderArrow() : ' ')}.";
+                default:
+                    return "???";
+            }
         }
     }
 }

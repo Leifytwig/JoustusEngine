@@ -20,6 +20,24 @@ namespace JoustusEngine
         {
             _arrowType = arrowType;
         }
+
+        public char RenderArrow()
+        {
+            switch (_arrowType) {
+                case ArrowType.Single:
+                    return 'S';
+                case ArrowType.Double:
+                    return 'D';
+                case ArrowType.Triple:
+                    return 'T';
+                case ArrowType.Bomb:
+                    return 'B';
+                case ArrowType.Conveyor:
+                    return 'C';
+                default:
+                    return '?';
+            }
+        }
     }
 
     public enum ArrowType

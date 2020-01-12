@@ -10,12 +10,44 @@ namespace JoustusEngine
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            BoardSpace[,] board = new BoardSpace[5,5];
+            BoardSpace closedSpace = new BoardSpace(SpaceType.Closed);
+            BoardSpace openSpace = new BoardSpace();
+            BoardSpace graveSpace = new BoardSpace(SpaceType.Grave);
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j++) {
+                    bool extremeI = (i == 0 || i == 4);
+                    bool extremeJ = (j == 0 || j == 4);
+                    bool isCorner = extremeI && extremeJ;
+                    bool isSide = (extremeI && !extremeJ) || (!extremeI && extremeJ);
+                    if (isCorner) {
+                        board[i, j] = closedSpace;
+                    }
+                    else if (isSide)
+                    {
+                        board[i, j] = graveSpace;
+                    }
+                    else 
+                    {
+                        board[i, j] = openSpace;
+                    }
+                }
+            }
+
+            for (int i = 0; i < 21; i++) {
+                if (i % 4 == 0) {
+                    Console.WriteLine("+---+---+---+---+---+");
+                }
+                else {
+                    string row = "|";
+                    for (int j = 0; j < 5; j++) {
+                        row += $"{board[(i - 1) / 4, j].RenderRow((i % 4) - 1)}|";
+                    }
+                    Console.WriteLine(row);
+                }
+            }
+            Console.ReadKey();
         }
     }
 }

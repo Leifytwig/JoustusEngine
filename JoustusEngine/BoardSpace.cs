@@ -50,6 +50,72 @@ namespace JoustusEngine
         {
             _card = card;
         }
+
+        public string RenderRow(int row)
+        {
+            if (_spaceType == SpaceType.Closed)
+            {
+                if (_hasGem && row == 2)
+                {
+                    return "X*X";
+                }
+                else
+                {
+                    return "XXX";
+                }
+            }
+            else if (_spaceType == SpaceType.Grave)
+            {
+                if (_card != null)
+                {
+                    if (_hasGem && row == 2)
+                    {
+                        return _card.RenderRow(row).Substring(0, 1) + '*' + _card.RenderRow(row).Substring(2, 1);
+                    }
+                    else
+                    {
+                        return _card.RenderRow(row);
+                    }
+                }
+                else if (_hasGem && row == 2)
+                {
+                    return "-*-";
+                }
+                else
+                {
+                    return "---";
+                }
+            }
+            else if (_spaceType == SpaceType.Open)
+            {
+                if (_card != null)
+                {
+                    if (_hasGem && row == 2)
+                    {
+                        return _card.RenderRow(row).Substring(0, 1) + '*' + _card.RenderRow(row).Substring(2, 1);
+                    }
+                    else
+                    {
+                        return _card.RenderRow(row);
+                    }
+                }
+                else
+                {
+                    if (_hasGem && row == 2)
+                    {
+                        return " * ";
+                    }
+                    else
+                    {
+                        return "   ";
+                    }
+                }
+            }
+            else
+            {
+                return "???";
+            }
+        }
     }
 
     public enum SpaceType
