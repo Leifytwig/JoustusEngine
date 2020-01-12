@@ -69,11 +69,11 @@ namespace JoustusEngine
         {
             switch (row)
             {
-                case 1:
+                case 0:
                     return $".{(_topSide != null ? _topSide.RenderArrow() : ' ')}.";
-                case 2:
+                case 1:
                     return $"{(_leftSide != null ? _leftSide.RenderArrow() : '.')} {(_rightSide != null ? _rightSide.RenderArrow() : ' ')}";
-                case 3:
+                case 2:
                     return $".{(_bottomSide != null ? _bottomSide.RenderArrow() : ' ')}.";
                 default:
                     return "???";

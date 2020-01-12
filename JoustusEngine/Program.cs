@@ -11,9 +11,6 @@ namespace JoustusEngine
         static void Main(string[] args)
         {
             BoardSpace[,] board = new BoardSpace[5,5];
-            BoardSpace closedSpace = new BoardSpace(SpaceType.Closed);
-            BoardSpace openSpace = new BoardSpace();
-            BoardSpace graveSpace = new BoardSpace(SpaceType.Grave);
 
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 5; j++) {
@@ -22,15 +19,15 @@ namespace JoustusEngine
                     bool isCorner = extremeI && extremeJ;
                     bool isSide = (extremeI && !extremeJ) || (!extremeI && extremeJ);
                     if (isCorner) {
-                        board[i, j] = closedSpace;
+                        board[i, j] = new BoardSpace(SpaceType.Closed);
                     }
                     else if (isSide)
                     {
-                        board[i, j] = graveSpace;
+                        board[i, j] = new BoardSpace(SpaceType.Grave);
                     }
                     else 
                     {
-                        board[i, j] = openSpace;
+                        board[i, j] = new BoardSpace(SpaceType.Open, (i + j) % 3 == 0);
                     }
                 }
             }

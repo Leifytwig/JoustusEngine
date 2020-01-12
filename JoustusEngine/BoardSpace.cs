@@ -68,7 +68,7 @@ namespace JoustusEngine
             {
                 if (_card != null)
                 {
-                    if (_hasGem && row == 2)
+                    if (_hasGem && row == 1)
                     {
                         return _card.RenderRow(row).Substring(0, 1) + '*' + _card.RenderRow(row).Substring(2, 1);
                     }
@@ -77,7 +77,7 @@ namespace JoustusEngine
                         return _card.RenderRow(row);
                     }
                 }
-                else if (_hasGem && row == 2)
+                else if (_hasGem && row == 1)
                 {
                     return "-*-";
                 }
@@ -90,7 +90,7 @@ namespace JoustusEngine
             {
                 if (_card != null)
                 {
-                    if (_hasGem && row == 2)
+                    if (_hasGem && row == 1)
                     {
                         return _card.RenderRow(row).Substring(0, 1) + '*' + _card.RenderRow(row).Substring(2, 1);
                     }
@@ -101,7 +101,7 @@ namespace JoustusEngine
                 }
                 else
                 {
-                    if (_hasGem && row == 2)
+                    if (_hasGem && row == 1)
                     {
                         return " * ";
                     }
